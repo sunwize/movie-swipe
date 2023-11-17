@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from "styled-components";
+import GlobalStyles from "./GlobalStyles";
+import Header from "./components/Header";
+import Invite from "./components/Invite";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Page>
+      <GlobalStyles/>
+      <Header/>
+      <Invite/>
+    </Page>
+    
   );
 }
+
+const Page = styled.div`
+font-family: var(--primary-font-family);
+  h1{
+    font-size: var(--header-font-size);
+  }
+  h3{
+    font-size: var(--subheader-font-size);
+  }
+  p{
+    font-size: var(--paragraph-font-size);
+  }
+
+`
+
 
 export default App;
