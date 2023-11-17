@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import Card from "./Card";
+import { useState } from "react";
+
 const DisplayCard = () =>{
     const [likedMovies, setLikedMovies] = useState([]);
-    
+
     return(
         <Wrapper>
             {/* send the movie to the card file to be set to display  */}
