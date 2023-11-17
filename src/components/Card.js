@@ -1,18 +1,27 @@
 import styled from "styled-components";
 
-const Card = () =>{
 
+
+// add the movie description later
+const Card = ({movie}) =>{
+    const imgUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+    //console.log(movie);
     return(
         <Display>
-            movie
+            <img alt="image poster" src={imgUrl}/>
+            <h3>{movie.title}</h3>
         </Display>
     )
 }
 
 const Display = styled.div`
-    width: 20.25rem;
-    height: 30rem;
-    border: 1px solid black;
+    width: 20rem;
+    text-align: center;
+    img{
+        width: 100%;
+        object-fit: cover;
+        aspect-ratio: 2/3;
+    }
 
 `
 export default Card;
