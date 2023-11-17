@@ -2,6 +2,7 @@ import styled from "styled-components";
 import GlobalStyles from "./GlobalStyles";
 import Header from "./components/Header";
 import Invite from "./components/Invite";
+import DisplayCard from "./components/DisplayCard";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <GlobalStyles/>
       <Header/>
       <Invite/>
+      <DisplayCard/>
     </Page>
     
   );
