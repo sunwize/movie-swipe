@@ -5,7 +5,7 @@ const Header = () =>{
 
     return(
         <Wrapper>
-            <h1>Movie Tinder</h1>
+            <img src={require("../media/logo.png")} alt="prout" width={150}/>
         </Wrapper>
     )
 }

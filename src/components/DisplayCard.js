@@ -3,6 +3,9 @@ import Card from "./Card";
 import Loading from "./Loading";
 import { useEffect, useState } from "react";
 import { getPopularMovies, getRelatedMovies } from "../services/api";
+import { IconContext } from "react-icons";
+import { FaThumbsDown, FaThumbsUp } from "react-icons/fa";
+
 
 
 const DisplayCard = () =>{
@@ -49,6 +52,17 @@ const DisplayCard = () =>{
             {/* send the movie to the card file to set to display  */}
             <Card movie={movies[currentIndex]}/>
             <div className="selectors">
+            <button className="choice"
+                    id="no" 
+                    onClick={() => {
+                        setCurrentIndex(currentIndex + 1)}
+                    }> 
+                    <IconContext.Provider value={{ size:'2.5rem' }}>
+                        <div>
+                            <FaThumbsDown />
+                        </div>
+                    </IconContext.Provider>
+                </button> 
                 <button className="choice"
                     id="yes" 
                     onClick={() => {
@@ -56,16 +70,12 @@ const DisplayCard = () =>{
                         setCurrentIndex(currentIndex + 1)
                         
                     }}> 
-                    Yes 
+                    <IconContext.Provider value={{ size:'2.5rem' }}>
+                        <div>
+                            <FaThumbsUp />
+                        </div>
+                    </IconContext.Provider>
                 </button>
-                <button className="choice"
-                    id="no" 
-                    onClick={() => {
-                        setCurrentIndex(currentIndex + 1)}
-                    }> 
-                    No 
-                </button>        
-                
             </div>
         </Wrapper>
     ):(
@@ -89,7 +99,17 @@ const Wrapper = styled.div`
     }
     .choice{
         gap: 2rem;
-        font-size: var(--subheader-font-size);
+        width: 5rem;
+        height: 5rem;
+        color: white;
+        border: none;
     }
+    #yes{
+        background-color: green;
+    }
+    #no{
+        background-color: red;
+    }
+    
 `
 export default DisplayCard;

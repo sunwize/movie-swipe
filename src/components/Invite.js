@@ -18,8 +18,8 @@ const Invite = () =>{
 
     return(
         <Wrapper>
-            <h3>Let's send out some invites!</h3>
             <div className="adding">
+                <div><h3>Add friend(s):</h3></div>
                 {emailList.map((element, i) => {
                     return<div key={i} className="invited"><h3 className="letter">{element.at(0)}</h3></div>
                 })}
