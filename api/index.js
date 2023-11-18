@@ -19,11 +19,21 @@ express()
             accept: 'application/json',
             Authorization: `Bearer ${process.env.TMDB_API_KEY}`
         }
-    };
+    }
+    const response = await fetch(url, options).then(res => res.json());
+    res.json(response.results);
+})
 
-    const response = await fetch(url, options)
-    .then(res => res.json());
-
+.get("/movies/related/:id", async (req, res) => {
+    const url = `https://api.themoviedb.org/3/movie/${req.params.id}/recommendations`;
+    const options = {
+        method: 'GET', 
+        headers: {
+            accept: 'application/json',
+            Authorization: `Bearer ${process.env.TMDB_API_KEY}`
+        }
+    }
+    const response = await fetch(url, options).then(res => res.json());
     res.json(response.results);
 })
 
@@ -36,4 +46,4 @@ express()
 
 .listen(port, () => {
     console.log(`Example app listening on port ${port}`)
-})
+});

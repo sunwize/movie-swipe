@@ -9,13 +9,14 @@ const Card = ({movie}) =>{
     return(
         <Display>
             <img alt="image poster" src={imgUrl}/>
-            <h3>{movie.title}</h3>
+            
         </Display>
     )
 }
 
 const Display = styled.div`
     width: 20rem;
+    height: 30rem;
     text-align: center;
     img{
         width: 100%;

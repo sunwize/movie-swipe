@@ -9,3 +9,8 @@ export const getPopularMovies = async () => {
     return res.data;
 }
 
+export const getRelatedMovies = async (movieId) => {
+    const res = await api.get(`/movies/related/${movieId}`);
+    return res.data;
+}
+
