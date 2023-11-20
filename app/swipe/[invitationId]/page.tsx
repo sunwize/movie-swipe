@@ -53,14 +53,15 @@ export default function Invitation() {
         </div>
         <div className="flex justify-center w-full">
           {
-            movie &&
-                <MovieTile
-                  key={movie.id}
-                  movie={movie}
-                  className="w-full max-w-[400px]"
-                  onThumbUp={onThumbUp}
-                  onThumbDown={onThumbDown}
-                />
+            movie && (
+              <MovieTile
+                key={movie.id}
+                movie={movie}
+                className="w-full max-w-[400px]"
+                onThumbUp={onThumbUp}
+                onThumbDown={onThumbDown}
+              />
+            )
           }
         </div>
       </section>

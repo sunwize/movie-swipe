@@ -3,6 +3,7 @@
 import { FormEvent, useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Home() {
   const [email, setEmail] = useState('');
@@ -22,7 +23,9 @@ export default function Home() {
     a.href = `mailto:${emails.join(',')}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     a.click();
     a.remove();
-    router.push('/swipe/1');
+
+    const invitationId = uuidv4() as string;
+    router.push(`/swipe/${invitationId}`);
   };
 
   return (

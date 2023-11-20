@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server.js';
+import { NextResponse } from 'next/server.js';
 import { tmdb } from '../../../../lib/services/tmdb';
 
 export const GET = async () => {
