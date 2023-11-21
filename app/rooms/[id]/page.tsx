@@ -194,6 +194,12 @@ export default function Invitation() {
               showThumbs={false}
               className="w-full max-w-[400px]"
             />
+            <Button
+              onClick={() => router.push('/')}
+              className="mt-10"
+            >
+              <span className="text-2xl font-bold">Start over</span>
+            </Button>
           </section>
         )
       }
