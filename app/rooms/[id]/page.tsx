@@ -196,7 +196,7 @@ export default function Invitation() {
             />
             <Button
               onClick={() => router.push('/')}
-              className="mt-10"
+              className="mt-4"
             >
               <span className="text-2xl font-bold">Start over</span>
             </Button>
