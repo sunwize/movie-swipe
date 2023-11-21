@@ -1,15 +1,25 @@
 import Image from 'next/image';
 import { FaThumbsUp, FaThumbsDown } from 'react-icons/fa';
 import { useState } from 'react';
+import Button from './Button';
 
 interface Props {
   movie: Movie
   className?: string
-  onThumbUp: () => void
-  onThumbDown: () => void
+  onThumbUp?: () => void
+  onThumbDown?: () => void
+  showThumbs?: boolean
+  disabled?: boolean
 }
 
-export default function MovieTile({ movie, onThumbUp, onThumbDown, className }: Props) {
+export default function MovieTile({
+  movie,
+  onThumbUp = () => {},
+  onThumbDown = () => {},
+  showThumbs = true,
+  disabled = false,
+  className,
+}: Props) {
   const [isOverviewVisible, setIsOverviewVisible] = useState(false);
   const posterUrl = movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : '';
 
@@ -26,21 +36,27 @@ export default function MovieTile({ movie, onThumbUp, onThumbDown, className }: 
           )
         }
       </div>
-      <p title={movie.title} className="truncate text-xl font-medium my-3">{movie.title}</p>
-      <div className="grid grid-cols-2 gap-1 text-white font-medium text-xl mt-1">
-        <button
-          onClick={onThumbDown}
-          className="col-span-1 bg-red-600 rounded-md border border-2 border-red-600 hover:border-white shadow-md flex justify-center py-4"
-        >
-          <FaThumbsDown />
-        </button>
-        <button
-          onClick={onThumbUp}
-          className="col-span-1 bg-green-600 rounded-md border border-2 border-green-600 hover:border-white shadow-md flex justify-center py-4"
-        >
-          <FaThumbsUp />
-        </button>
-      </div>
+      <p title={movie.title} className="truncate text-center text-xl font-medium my-3">{movie.title}</p>
+      {
+        showThumbs && (
+          <div className="grid grid-cols-2 gap-1 text-white font-medium text-xl mt-1">
+            <Button
+              onClick={onThumbDown}
+              disabled={disabled}
+              className="col-span-1 bg-red-600 border-red-600 flex justify-center py-4"
+            >
+              <FaThumbsDown />
+            </Button>
+            <Button
+              onClick={onThumbUp}
+              disabled={disabled}
+              className="col-span-1 bg-green-600 border-green-600 flex justify-center py-4"
+            >
+              <FaThumbsUp />
+            </Button>
+          </div>
+        )
+      }
     </article>
   );
 }
